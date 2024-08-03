@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: ddd-reactive-java
+app:
+  url:
+    health: "/health-check"

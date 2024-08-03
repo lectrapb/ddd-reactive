@@ -1,0 +1,127 @@
+// Main project (located in app/)
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+
+}
+
+// Main project apps
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.0'
+    id 'io.spring.dependency-management' version '1.1.5'
+}
+
+// Label spring version
+ext {
+    springVersion = '3.3.0'
+}
+
+// Configuration SpringBoot
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+//mainClassName = 'com.app.Starter'
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    // Configuration Subprojects Spring
+    implementation project(":backoffice")
+
+    implementation "org.springframework.boot:spring-boot-starter-test"
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+//Folders main project
+sourceSets {
+    main {
+        java { srcDirs = ['apps/main'] }
+        resources { srcDirs = ['apps/main/resources'] }
+    }
+
+    test {
+        java { srcDirs = ['apps/test'] }
+        resources { srcDirs = ['apps/test/resources'] }
+    }
+}
+
+// Common for all projects
+allprojects {
+    apply plugin: 'java'
+
+    sourceCompatibility = 17
+    targetCompatibility = 17
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        // Prod
+        annotationProcessor 'org.projectlombok:lombok:1.18.22'
+        compileOnly 'org.projectlombok:lombok:1.18.22'
+        implementation 'com.google.code.gson:gson:2.10.1'
+        // Test
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    }
+
+    test {
+        useJUnitPlatform()
+
+        testLogging {
+            events "passed", "skipped", "failed"
+        }
+    }
+
+    task view_paths {
+        doLast {
+            println "$project.name"
+            println "------------------"
+            println "   Main: $sourceSets.main.java.srcDirTrees"
+            println "   Resources: $sourceSets.main.resources.srcDirTrees"
+            println "   Tests: $sourceSets.test.java.srcDirTrees"
+            println "   Resources: $sourceSets.test.resources.srcDirTrees"
+        }
+    }
+}
+
+
+// All subprojects (located in src/*)
+subprojects {
+    group = "com.app.${rootProject.name}"
+
+    dependencies {
+        implementation "org.springframework.boot:spring-boot-starter-webflux:${springVersion}"
+
+        testImplementation rootProject.sourceSets.main.output
+        testImplementation "org.springframework.boot:spring-boot-starter-test:${springVersion}"
+
+        // Share with all projects
+        if (project.name != "shared") {
+            implementation project(":shared")
+            testImplementation project(":shared").sourceSets.test.output
+        }
+    }
+
+    sourceSets {
+        main {
+            java { srcDirs = ['main'] }
+            resources { srcDirs = ['main/resources'] }
+        }
+
+        test {
+            java { srcDirs = ['test'] }
+            resources { srcDirs = ['main/resources'] }
+        }
+    }
+}
+
+
