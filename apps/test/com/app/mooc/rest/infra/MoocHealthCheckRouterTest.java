@@ -1,5 +1,6 @@
 package com.app.mooc.rest.infra;
 
+import com.app.share.application.ApplicationTestCase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
@@ -14,7 +15,7 @@ class MoocHealthCheckRouterTest extends ApplicationTestCase {
     @Test
     void check_health_check_is_working() {
 
-        assertRequestBody(HttpMethod.GET.name(),
+        assertRequestBody(HttpMethod.GET,
                 "/mooc/health",
                 "",200,
                 "{'status': 'ok'}");

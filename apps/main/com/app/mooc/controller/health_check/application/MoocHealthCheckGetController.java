@@ -1,4 +1,4 @@
-package com.app.mooc.rest.application;
+package com.app.mooc.controller.health_check.application;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;

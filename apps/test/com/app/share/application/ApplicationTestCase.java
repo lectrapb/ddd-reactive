@@ -1,4 +1,4 @@
-package com.app.mooc.rest.infra;
+package com.app.share.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,14 +15,14 @@ public abstract class ApplicationTestCase {
     private WebTestClient client;
 
     public void assertRequestBody(
-            String method,
+            HttpMethod method,
             String endPoint,
             String body,
             Integer expectedStatusCode,
             String expectedBody
     ){
 
-         client.method(HttpMethod.valueOf(method))
+         client.method(method)
                  .uri(endPoint)
                  .body(fromValue(body))
                  .exchange()
