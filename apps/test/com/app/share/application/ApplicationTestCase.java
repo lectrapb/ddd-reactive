@@ -14,10 +14,10 @@ public abstract class ApplicationTestCase {
     @Autowired
     private WebTestClient client;
 
-    public void assertRequestBody(
+    public <T> void assertRequestBody(
             HttpMethod method,
             String endPoint,
-            String body,
+            T body,
             Integer expectedStatusCode,
             String expectedBody
     ){

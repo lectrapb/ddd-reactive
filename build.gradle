@@ -31,13 +31,14 @@ dependencies {
 
     // Configuration Subprojects Spring
     implementation project(":backoffice")
+    implementation project(":mooc")
+    implementation project(":shared")
 
+    //Test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'io.projectreactor:reactor-test'
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine'
-//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-//    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 
 
 }
@@ -68,6 +69,8 @@ allprojects {
 
     repositories {
         mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
     }
 
     dependencies {
@@ -112,6 +115,8 @@ subprojects {
 
         testImplementation rootProject.sourceSets.main.output
         testImplementation "org.springframework.boot:spring-boot-starter-test:${springVersion}"
+        //Test
+        testImplementation 'io.projectreactor:reactor-test:3.6.8'
 
         // Share with all projects
         if (project.name != "shared") {
