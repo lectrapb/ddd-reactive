@@ -1,6 +1,12 @@
+
 spring:
+  main:
+    allow-bean-definition-overriding: true
   application:
     name: ddd-reactive-java
 app:
   url:
-    health: "/health-check"
+    health_back_office: "/backoffice/health"
+    health_mooc: "/mooc/health"
+server:
+  port: 1080

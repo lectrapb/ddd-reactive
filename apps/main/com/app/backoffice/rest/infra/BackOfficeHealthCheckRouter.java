@@ -1,4 +1,4 @@
-package com.app.mooc.rest.infra;
+package com.app.backoffice.rest.infra;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -14,10 +14,10 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 import static org.springframework.web.reactive.function.BodyInserters.fromValue;
 
 @Configuration
-public class HealthCheckRouter {
+public class BackOfficeHealthCheckRouter {
 
     @Bean
-    public RouterFunction<ServerResponse> router(@Value("${app.url.health}") String url) {
+    public RouterFunction<ServerResponse> router(@Value("${app.url.health_back_office}") String url) {
         return route(GET(url), request -> ServerResponse.status(HttpStatus.OK)
                 .body(fromValue(Map.of("status", "ok"))));
     }
