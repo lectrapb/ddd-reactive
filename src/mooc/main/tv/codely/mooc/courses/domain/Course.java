@@ -1,5 +1,9 @@
 package tv.codely.mooc.courses.domain;
 
-public record Course(String id, String name, String description) {
+import tv.codely.mooc.courses.domain.value.CourseDuration;
+import tv.codely.mooc.courses.domain.value.CourseId;
+import tv.codely.mooc.courses.domain.value.CourseName;
+
+public record Course(CourseId id, CourseName name, CourseDuration description) {
 
 }

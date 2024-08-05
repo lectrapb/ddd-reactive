@@ -1,6 +1,6 @@
 package com.app.mooc.controller.courses.application;
 
-import com.app.mooc.controller.courses.domain.CreateCourseRequest;
+import com.app.mooc.controller.courses.domain.CreateCourseHttpRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -9,6 +9,7 @@ import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 import tv.codely.mooc.courses.application.create.CourseCreator;
+import tv.codely.mooc.courses.domain.CreateCourseRequest;
 
 import static org.springframework.web.reactive.function.BodyInserters.fromValue;
 
@@ -22,8 +23,9 @@ public class CoursesPutController {
 
 
         var id = request.pathVariable("id");
-        return  request.bodyToMono(CreateCourseRequest.class)
-                .flatMap(reqDto ->creator.create(id, reqDto.getName(), reqDto.getDuration()))
+        return  request.bodyToMono(CreateCourseHttpRequest.class)
+                .flatMap(reqDto ->creator.create(new CreateCourseRequest(id, reqDto.getName(),
+                                reqDto.getDuration())))
                 .then(ServerResponse.status(HttpStatus.CREATED)
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(fromValue("")));
