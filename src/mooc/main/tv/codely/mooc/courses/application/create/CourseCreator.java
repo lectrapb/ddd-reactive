@@ -20,7 +20,8 @@ public final class CourseCreator {
 
      public Mono<Void> create(CreateCourseRequest request) {
 
-         return   Mono.fromCallable(() -> new Course(new CourseId(request.id()), new CourseName(request.name()), new CourseDuration(request.duration())))
+         return   Mono.fromCallable(() -> new Course(new CourseId(request.id()),
+                         new CourseName(request.name()), new CourseDuration(request.duration())))
                  .flatMap(repository::save)
                  .then(Mono.empty());
 

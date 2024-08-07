@@ -15,4 +15,9 @@ public abstract class StringValueObject {
             throw new RuntimeException("Value is required");
         }
     }
+
+    public String value(){
+        return value;
+    }
+
 }

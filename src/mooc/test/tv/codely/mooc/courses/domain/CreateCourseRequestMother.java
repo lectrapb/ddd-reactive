@@ -2,7 +2,7 @@ package tv.codely.mooc.courses.domain;
 
 import java.util.UUID;
 
-public class CreateCourseMother {
+public class CreateCourseRequestMother {
 
     private static final String COURSE_NAME = "java-ddd";
     private static final String DURATION_COURSE = "1000";

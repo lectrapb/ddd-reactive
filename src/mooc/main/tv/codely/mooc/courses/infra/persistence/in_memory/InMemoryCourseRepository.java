@@ -1,6 +1,5 @@
-package tv.codely.mooc.courses.infra;
+package tv.codely.mooc.courses.infra.persistence.in_memory;
 
-import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 import tv.codely.mooc.courses.domain.Course;
 import tv.codely.mooc.courses.domain.CourseRepository;
@@ -8,7 +7,7 @@ import tv.codely.mooc.courses.domain.CourseRepository;
 import java.util.HashMap;
 import java.util.Optional;
 
-@Service
+
 public class InMemoryCourseRepository implements CourseRepository {
 
     private HashMap<String, Course> courses = new HashMap<>();
