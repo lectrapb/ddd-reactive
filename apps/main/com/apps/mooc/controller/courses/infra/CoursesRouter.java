@@ -1,6 +1,6 @@
 package com.apps.mooc.controller.courses.infra;
 
-import com.app.mooc.controller.courses.application.CoursesPutController;
+import com.apps.mooc.controller.courses.application.CoursesPutController;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

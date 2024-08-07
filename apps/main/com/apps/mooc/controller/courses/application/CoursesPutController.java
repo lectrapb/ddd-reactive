@@ -1,6 +1,6 @@
 package com.apps.mooc.controller.courses.application;
 
-import com.app.mooc.controller.courses.domain.CreateCourseHttpRequest;
+import com.apps.mooc.controller.courses.domain.CreateCourseHttpRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -9,15 +9,19 @@ import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 import tv.codely.mooc.courses.application.create.CourseCreator;
+import tv.codely.mooc.courses.domain.CourseRepository;
 import tv.codely.mooc.courses.domain.CreateCourseRequest;
 
 import static org.springframework.web.reactive.function.BodyInserters.fromValue;
 
 @Component
-@AllArgsConstructor
 public class CoursesPutController {
 
     private final CourseCreator creator;
+
+    public CoursesPutController(CourseRepository repository) {
+        this.creator = new CourseCreator(repository);
+    }
 
     public Mono<ServerResponse> handler(ServerRequest request) {
 
