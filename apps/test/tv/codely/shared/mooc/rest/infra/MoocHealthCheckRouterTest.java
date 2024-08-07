@@ -1,10 +1,11 @@
-package com.app.mooc.rest.infra;
+package tv.codely.shared.mooc.rest.infra;
 
-import com.app.share.application.ApplicationTestCase;
+import tv.codely.shared.share.application.ApplicationTestCase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.test.web.reactive.server.WebTestClient;
+import tv.codely.shared.share.application.ApplicationTestCase;
 
 
 class MoocHealthCheckRouterTest extends ApplicationTestCase {

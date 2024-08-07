@@ -1,7 +1,7 @@
-package com.app.infra;
+package tv.codely.shared.infra;
 
 
-import com.app.domain.UseCase;
+import tv.codely.shared.domain.UseCase;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;

@@ -1,7 +1,7 @@
 package tv.codely.mooc.courses.application.create;
 
 
-import com.app.domain.UseCase;
+import tv.codely.shared.domain.UseCase;
 import lombok.AllArgsConstructor;
 import reactor.core.publisher.Mono;
 import tv.codely.mooc.courses.domain.Course;

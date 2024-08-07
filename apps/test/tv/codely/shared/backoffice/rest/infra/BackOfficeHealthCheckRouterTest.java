@@ -1,6 +1,6 @@
-package com.app.backoffice.rest.infra;
+package tv.codely.shared.backoffice.rest.infra;
 
-import com.app.share.application.ApplicationTestCase;
+import tv.codely.shared.share.application.ApplicationTestCase;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpMethod;
 

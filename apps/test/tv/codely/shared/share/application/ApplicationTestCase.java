@@ -1,4 +1,4 @@
-package com.app.share.application;
+package tv.codely.shared.share.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

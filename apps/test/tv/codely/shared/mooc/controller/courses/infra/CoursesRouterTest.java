@@ -1,11 +1,12 @@
-package com.app.mooc.controller.courses.infra;
+package tv.codely.shared.mooc.controller.courses.infra;
 
 import com.app.mooc.controller.courses.domain.CreateCourseHttpRequest;
-import com.app.share.application.ApplicationTestCase;
+import tv.codely.shared.share.application.ApplicationTestCase;
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
+import tv.codely.shared.share.application.ApplicationTestCase;
 
 import java.util.UUID;
 

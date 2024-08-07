@@ -1,6 +1,6 @@
 package tv.codely.mooc.courses.domain.value;
 
-import com.app.domain.value.Identifier;
+import tv.codely.shared.domain.value.Identifier;
 import lombok.Getter;
 
 

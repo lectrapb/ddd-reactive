@@ -1,4 +1,4 @@
-package com.app.domain.value;
+package tv.codely.shared.domain.value;
 
 import java.util.UUID;
 

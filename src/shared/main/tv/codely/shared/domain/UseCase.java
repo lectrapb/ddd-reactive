@@ -1,4 +1,4 @@
-package com.app.domain;
+package tv.codely.shared.domain;
 
 import java.lang.annotation.*;
 
