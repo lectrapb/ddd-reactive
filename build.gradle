@@ -29,9 +29,9 @@ apply plugin: 'io.spring.dependency-management'
 
 
 application {
-    mainClassName = 'com.apps.Starter' // Especifica tu clase principal aquí
+    mainClassName = 'com.apps.Starter' //  Main class name
 }
-//mainClassName = 'com.apps.Starter'
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
 

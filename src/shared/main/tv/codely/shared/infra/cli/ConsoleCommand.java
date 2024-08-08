@@ -1,4 +1,4 @@
-package tv.codely.shared.infra;
+package tv.codely.shared.infra.cli;
 
 import org.springframework.stereotype.Service;
 
