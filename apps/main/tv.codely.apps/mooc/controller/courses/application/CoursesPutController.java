@@ -1,6 +1,6 @@
-package com.apps.mooc.controller.courses.application;
+package tv.codely.apps.mooc.controller.courses.application;
 
-import com.apps.mooc.controller.courses.domain.CreateCourseHttpRequest;
+import tv.codely.apps.mooc.controller.courses.domain.CreateCourseHttpRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

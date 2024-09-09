@@ -29,7 +29,7 @@ apply plugin: 'io.spring.dependency-management'
 
 
 application {
-    mainClassName = 'com.apps.Starter' //  Main class name
+    mainClassName = 'tv.codely.apps.Starter' //  Main class name
 }
 
 dependencies {
@@ -39,6 +39,8 @@ dependencies {
     implementation project(":backoffice")
     implementation project(":mooc")
     implementation project(":shared")
+
+    testImplementation project(":mooc")
 
     //Test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -83,12 +85,11 @@ allprojects {
         // Prod
         annotationProcessor 'org.projectlombok:lombok:1.18.22'
         compileOnly 'org.projectlombok:lombok:1.18.22'
-       // implementation 'com.google.code.gson:gson:2.10.1'
         // Test
-        testImplementation 'org.springframework.boot:spring-boot-starter-test'
-        testImplementation 'io.projectreactor:reactor-test'
-        testImplementation 'org.junit.jupiter:junit-jupiter-api'
-        testImplementation 'org.junit.jupiter:junit-jupiter-engine'
+        //testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        //testImplementation 'io.projectreactor:reactor-test'
+        //testImplementation 'org.junit.jupiter:junit-jupiter-api'
+        //testImplementation 'org.junit.jupiter:junit-jupiter-engine'
     }
 
     test {
@@ -114,7 +115,7 @@ allprojects {
 
 // All subprojects (located in src/*)
 subprojects {
-    //group = "com.app.${rootProject.name}"
+    group = "tv.codely.${rootProject.name}"
 
     dependencies {
         implementation "org.springframework.boot:spring-boot-starter-webflux:${springVersion}"
@@ -126,14 +127,22 @@ subprojects {
         //Database
         implementation "org.springframework.boot:spring-boot-starter-data-jdbc:${springVersion}"
         implementation "org.springframework.boot:spring-boot-starter-data-r2dbc:${springVersion}"
-        runtimeOnly 'org.postgresql:postgresql'
-        runtimeOnly 'org.postgresql:r2dbc-postgresql'
+        //Important Allow share test resources and clases in othrer proyects
+        testImplementation rootProject.sourceSets.main.output
+
+        testCompileOnly 'org.projectlombok:lombok:1.18.28'
+        testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+        //runtimeOnly 'org.postgresql:postgresql'
+        runtimeOnly  'org.postgresql:postgresql:42.7.2'
+        runtimeOnly 'org.postgresql:r2dbc-postgresql:1.0.5.RELEASE'
 
 
         // Share with all projects
         if (project.name != "shared") {
             implementation project(":shared")
-           // testImplementation project(":shared").sourceSets.test.output
+            //Important Allow share test resources and clases in othrer proyects
+            testImplementation project(":shared").sourceSets.test.output
         }
     }
 
@@ -144,7 +153,7 @@ subprojects {
         }
 
         test {
-            java { srcDirs = ['test'] }
+            java { srcDirs = ['test','main'] }
             resources { srcDirs = ['main/resources'] }
         }
     }

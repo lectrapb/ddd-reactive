@@ -1,4 +1,4 @@
-package com.apps.mooc.controller.courses.domain;
+package tv.codely.apps.mooc.controller.courses.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

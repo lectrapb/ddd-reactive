@@ -1,4 +1,4 @@
-package com.apps.mooc.controller.health_check.application;
+package tv.codely.apps.mooc.controller.health_check.application;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;

@@ -18,7 +18,7 @@ import java.util.HashMap;
  gradle  :run --args="mooc_backend Fake"
 
  **/
-public class Starter2 {
+public class Starter {
     public static void main(String[] args) {
         if (args.length < 2) {
             throw new RuntimeException("There are not enough arguments");

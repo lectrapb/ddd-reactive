@@ -11,10 +11,10 @@ import tv.codely.shared.domain.UseCase;
 @SpringBootApplication
 @ComponentScan( includeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = UseCase.class),
         value = {"tv.codely", "tv.codely.mooc", "tv.codely.shared"})
-public class Starter {
+public class Starter1 {
 
     public static void main(String[] args) {
-        SpringApplication.run(Starter.class, args);
+        SpringApplication.run(Starter1.class, args);
     }
 
    // @Bean

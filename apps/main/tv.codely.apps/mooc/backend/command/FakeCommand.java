@@ -1,4 +1,4 @@
-package com.apps.mooc.backend.command;
+package tv.codely.apps.mooc.backend.command;
 
 import org.springframework.stereotype.Service;
 import tv.codely.shared.infra.cli.ConsoleCommand;

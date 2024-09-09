@@ -1,11 +1,10 @@
-package tv.codely.mooc.courses.infra;
+package tv.codely.mooc.courses.infra.persistence.in_memory;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import reactor.test.StepVerifier;
 import tv.codely.mooc.courses.domain.CourseRepository;
 import tv.codely.mooc.courses.domain.CreateCourseMother;
-import tv.codely.mooc.courses.infra.persistence.in_memory.InMemoryCourseRepository;
 
 import java.util.Optional;
 import java.util.UUID;

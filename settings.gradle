@@ -1,5 +1,8 @@
 rootProject.name = "java-ddd-reactive"
 
+//include ":apps"
+//project(':apps').projectDir = new File('apps')
+
 include ":backoffice"
 project(':backoffice').projectDir = new File('src/backoffice')
 
@@ -8,6 +11,4 @@ project(':mooc').projectDir = new File('src/mooc')
 
 include ':shared'
 project(':shared').projectDir = new File('src/shared')
-
-
 

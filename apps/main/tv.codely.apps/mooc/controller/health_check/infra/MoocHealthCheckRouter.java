@@ -1,6 +1,6 @@
-package com.apps.mooc.controller.health_check.infra;
+package tv.codely.apps.mooc.controller.health_check.infra;
 
-import com.apps.mooc.controller.health_check.application.MoocHealthCheckGetController;
+import tv.codely.apps.mooc.controller.health_check.application.MoocHealthCheckGetController;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
