@@ -1,8 +1,8 @@
-package com.apps;
+package tv.codely.apps;
 
 
 
-import com.apps.mooc.MoocBackendApplication;
+import tv.codely.apps.mooc.MoocBackendApplication;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -18,7 +18,7 @@ import java.util.HashMap;
  gradle  :run --args="mooc_backend Fake"
 
  **/
-public class Starter {
+public class Starter2 {
     public static void main(String[] args) {
         if (args.length < 2) {
             throw new RuntimeException("There are not enough arguments");

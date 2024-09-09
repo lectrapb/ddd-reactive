@@ -1,15 +1,20 @@
-package com.apps;
+package tv.codely.apps;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import tv.codely.shared.domain.UseCase;
 
-//@SpringBootApplication
-//@ComponentScan({"com.apps","tv.codely.mooc"})
-public class Starter1 {
+@SpringBootApplication
+@ComponentScan( includeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = UseCase.class),
+        value = {"tv.codely", "tv.codely.mooc", "tv.codely.shared"})
+public class Starter {
 
     public static void main(String[] args) {
-        SpringApplication.run(Starter1.class, args);
+        SpringApplication.run(Starter.class, args);
     }
 
    // @Bean
