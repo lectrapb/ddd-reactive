@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface EventBus {
 
-    Mono<Void> publish(final List<DomainEvent<?>> event );
+    Mono<Void> publish(final List<DomainEvent<?>> events );
 }
