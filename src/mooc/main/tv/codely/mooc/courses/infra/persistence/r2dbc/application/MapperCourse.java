@@ -6,9 +6,9 @@ import tv.codely.mooc.courses.infra.persistence.r2dbc.domain.CourseModel;
 public class MapperCourse {
     public static CourseModel toModel(Course course) {
         return CourseModel.builder()
-                .id(course.id().value())
-                .name(course.name().value())
-                .duration(course.duration().value())
+                .id(course.getId().value())
+                .name(course.getName().value())
+                .duration(course.getDuration().value())
                 .build();
     }
 

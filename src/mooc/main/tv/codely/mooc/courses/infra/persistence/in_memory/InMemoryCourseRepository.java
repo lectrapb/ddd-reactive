@@ -14,7 +14,7 @@ public class InMemoryCourseRepository implements CourseRepository {
 
     @Override
     public Mono<Void> save(Course course) {
-        this.courses.put(course.id().value(), course);
+        this.courses.put(course.getId().value(), course);
         return Mono.empty();
     }
 

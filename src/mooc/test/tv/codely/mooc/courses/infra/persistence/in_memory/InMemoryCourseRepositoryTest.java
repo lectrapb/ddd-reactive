@@ -34,7 +34,7 @@ class InMemoryCourseRepositoryTest {
         //When
         repository.save(course);
         //then
-         repository.findById(course.id().value())
+         repository.findById(course.getId().value())
                  .as(StepVerifier::create)
                  .expectNext(Optional.of(course))
                  .verifyComplete();

@@ -31,7 +31,7 @@ public class PostgresSQLCourseRepositoryTest extends CoursesModuleInfrastructure
         //When
        courseRepositoryPostgres.save(course)
                .map(Optional::of)
-               .map(opt ->courseRepositoryPostgres.findById(course.id().value())
+               .map(opt ->courseRepositoryPostgres.findById(course.getId().value())
                            .as(StepVerifier::create)
                            .expectNext(Optional.of(course))
                            .verifyComplete());
@@ -56,7 +56,7 @@ public class PostgresSQLCourseRepositoryTest extends CoursesModuleInfrastructure
                 .verifyComplete();
 
         // Verificación del curso guardado
-        StepVerifier.create(courseRepositoryPostgres.findById(course.id().value()))
+        StepVerifier.create(courseRepositoryPostgres.findById(course.getId().value()))
                 .expectNextMatches(optionalCourse -> {
                     if (optionalCourse.isPresent()) {
                         System.out.println("Hey, saved course: " + optionalCourse.get());

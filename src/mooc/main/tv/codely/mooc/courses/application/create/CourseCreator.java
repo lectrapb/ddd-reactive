@@ -10,6 +10,7 @@ import tv.codely.mooc.courses.domain.CreateCourseRequest;
 import tv.codely.mooc.courses.domain.value.CourseDuration;
 import tv.codely.mooc.courses.domain.value.CourseId;
 import tv.codely.mooc.courses.domain.value.CourseName;
+import tv.codely.shared.domain.bus.EventBus;
 
 
 @UseCase
@@ -17,12 +18,14 @@ import tv.codely.mooc.courses.domain.value.CourseName;
 public final class CourseCreator {
 
      private final CourseRepository repository;
+     private final EventBus eventBus;
 
      public Mono<Void> create(CreateCourseRequest request) {
+         var course = Course.of(request.id(), request.name(), request.duration());
 
-         return   Mono.fromCallable(() -> new Course(new CourseId(request.id()),
-                         new CourseName(request.name()), new CourseDuration(request.duration())))
+         return   Mono.fromCallable(() -> course)
                  .flatMap(repository::save)
+                 .then(eventBus.publish(course.pullDomainEvents()))
                  .then(Mono.empty());
 
      }
