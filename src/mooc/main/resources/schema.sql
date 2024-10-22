@@ -10,6 +10,6 @@ CREATE TABLE IF NOT EXISTS mooc_courses (
 
 CREATE TABLE IF NOT EXISTS courses_counter (
     courses_counter_id VARCHAR(254) PRIMARY KEY,
-    courses_counter_total VARCHAR(254)
+    courses_counter_total BIGINT
 );
 

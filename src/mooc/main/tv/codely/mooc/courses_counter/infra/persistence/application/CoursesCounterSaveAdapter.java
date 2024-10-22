@@ -22,5 +22,6 @@ public class CoursesCounterSaveAdapter implements CoursesCounterSaveRepository {
         counterData.setTotal(coursesCounter.getTotal().value());
         return repository.save(counterData)
                 .then(Mono.empty());
+
     }
 }

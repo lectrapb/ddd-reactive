@@ -1,4 +1,4 @@
-package tv.codely.mooc.courses_counter.application.increment;
+package tv.codely.shared.infra.bus.event.spring;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Sinks;
 import tv.codely.shared.domain.event.DomainEvent;

@@ -12,8 +12,8 @@ import java.util.List;
 @AllArgsConstructor
 public class SpringApplicationEventBus implements EventBus {
 
-    private final ApplicationEventPublisher publisher;
-
+   // private final ApplicationEventPublisher publisher;
+   private final ReactiveEventBus publisher;
     @Override
     public Mono<Void> publish(List<DomainEvent<?>> events) {
         events.forEach(this::publish);
@@ -21,6 +21,6 @@ public class SpringApplicationEventBus implements EventBus {
     }
 
     private void publish(final DomainEvent<?> event) {
-        this.publisher.publishEvent(event);
+        this.publisher.publish(event);
     }
 }

@@ -17,6 +17,7 @@ import org.springframework.r2dbc.connection.init.ResourceDatabasePopulator;
 import org.springframework.transaction.ReactiveTransactionManager;
 import org.springframework.transaction.reactive.TransactionalOperator;
 import tv.codely.mooc.courses.infra.persistence.r2dbc.infra.CourseRepositoryR2DBC;
+import tv.codely.mooc.courses_counter.infra.persistence.infra.CoursesCounterRepositoryR2DBC;
 
 import java.time.Duration;
 
@@ -24,7 +25,10 @@ import static io.r2dbc.pool.PoolingConnectionFactoryProvider.MAX_SIZE;
 import static io.r2dbc.spi.ConnectionFactoryOptions.*;
 
 @Configuration
-@EnableR2dbcRepositories(basePackageClasses = CourseRepositoryR2DBC.class)
+@EnableR2dbcRepositories(basePackageClasses = {
+        CoursesCounterRepositoryR2DBC.class,
+        CourseRepositoryR2DBC.class
+})
 public class HibernateConfig {
 
     @Bean
