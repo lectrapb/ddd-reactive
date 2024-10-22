@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class PostgreSqlCourseCreateRespository implements CourseRepository {
+public class postgreSqlCourseCreateRepository implements CourseRepository {
 
     private final CourseRepositoryR2DBC repository;
     private final TransactionalOperator transaction;
